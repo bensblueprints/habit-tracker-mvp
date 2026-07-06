@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <title>Streakly</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-flame">🔥</span>
+        <h1>Streakly</h1>
+        <span class="brand-sub">Pay once. Own your habits forever.</span>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button class="tab active" data-view="today">Today</button>
+        <button class="tab" data-view="calendar">Calendar</button>
+        <button class="tab" data-view="stats">Stats</button>
+      </nav>
+      <div class="topbar-actions">
+        <button class="btn ghost" id="btn-export-json" title="Export all data as JSON">Export JSON</button>
+        <button class="btn ghost" id="btn-export-csv" title="Export history as CSV">Export CSV</button>
+        <button class="btn ghost" id="btn-import" title="Import a Streakly JSON export">Import</button>
+        <button class="btn primary" id="btn-add">+ New Habit</button>
+      </div>
+    </header>
+
+    <main id="view" class="view"></main>
+  </div>
+
+  <!-- Habit editor modal -->
+  <div class="modal-backdrop hidden" id="modal">
+    <div class="modal">
+      <h2 id="modal-title">New Habit</h2>
+      <div class="form">
+        <label>Name
+          <input type="text" id="f-name" placeholder="Drink water" maxlength="60">
+        </label>
+
+        <label>Icon</label>
+        <div class="icon-grid" id="f-icons"></div>
+
+        <label>Color</label>
+        <div class="color-grid" id="f-colors"></div>
+
+        <label>Schedule</label>
+        <div class="seg" id="f-schedule">
+          <button data-s="daily" class="active">Every day</button>
+          <button data-s="weekdays">Specific days</button>
+          <button data-s="timesPerWeek">N × per week</button>
+        </div>
+        <div class="sched-detail" id="f-weekdays">
+          <!-- filled by JS: Mon..Sun toggles -->
+        </div>
+        <div class="sched-detail hidden" id="f-times">
+          <input type="number" id="f-times-n" min="1" max="7" value="3"> times per week
+        </div>
+
+        <label class="row-label">
+          <input type="checkbox" id="f-goal-on"> Numeric goal
+        </label>
+        <div class="goal-detail hidden" id="f-goal">
+          <input type="number" id="f-goal-target" min="1" max="1000" value="8" style="width:80px"> ×
+          <input type="text" id="f-goal-unit" placeholder="glasses" maxlength="20" style="width:130px"> per day
+        </div>
+
+        <label>Reminders <span class="hint">(OS notifications while Streakly is running)</span></label>
+        <div class="reminders" id="f-reminders"></div>
+        <button class="btn ghost small" id="f-add-reminder">+ Add time</button>
+      </div>
+      <div class="modal-actions">
+        <button class="btn danger hidden" id="btn-delete">Delete</button>
+        <span class="spacer"></span>
+        <button class="btn ghost" id="btn-cancel">Cancel</button>
+        <button class="btn primary" id="btn-save">Save Habit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="../src/streaks.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
