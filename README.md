@@ -12,7 +12,7 @@ Habitify charges **$5/month, forever**, to store your checkmarks on their server
 
 Don't want to touch a terminal? Grab the packaged Windows installer (and support development):
 
-**→ [Get Streakly on Whop](https://whop.com/onetime-suite)** — pay once, own it forever.
+**→ [Get Streakly on Whop](https://whop.com/benjisaiempire/streakly-app)** — pay once, own it forever.
 
 ## Features
 
