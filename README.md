@@ -1,5 +1,9 @@
 # 🔥 Streakly
 
+## Demo
+
+VIDEO-PLACEHOLDER
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **The desktop habit tracker you buy once and own forever.** Streaks, GitHub-style heatmaps, smart schedules, reminders and stats — 100% local, zero subscription, zero cloud, zero telemetry.
